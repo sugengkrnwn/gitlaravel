@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\User;
 
 class CreateUsersTable extends Migration
 {
@@ -18,10 +19,32 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string ('role')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('nohp')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
+
+        
+     //FAKER USER
+     $faker=Faker\factory::create();
+     for($i=0; $i<30; $i++){
+         $user = new User();
+         $user->name = $faker->name;
+         $user->email = $faker->unique()->email;
+         $user->password = bcrypt('rahasia');
+         $user->role = 'users';
+         $user->save();
+ } 
+
+
     }
+
+   
+
+ //
+
 
     /**
      * Reverse the migrations.
