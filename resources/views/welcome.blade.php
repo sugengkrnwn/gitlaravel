@@ -22,20 +22,20 @@
     <div class="navbar-kiri">
     	<ul class="navbar-nav mr-auto">
       		<li class="nav-item">
-        	<a class="nav-link" href="#">Home</a>
+        	<a class="nav-link" href="/">Home</a>
       		</li>
       		<li class="nav-item">
-        	<a class="nav-link" href="#">About Us</a>
+        	<a class="nav-link" href="/lomba">Daftar Lomba</a>
       		</li>
     	</ul>
     </div>
-    
+
     	<ul class="navbar-nav ml-auto">
       		<li class="nav-item">
-        	<a class="nav-link btn btn-outline-light" href="#">Login</a>
+        	<a class="nav-link btn btn-outline-light" href="/login">Login</a>
       		</li>
       		<li class="nav-item">
-        	<a class="nav-link btn btn-primary" href="#">Register</a>
+        	<a class="nav-link btn btn-primary" href="/register">Register</a>
       		</li>
     	</ul>
   </div>
@@ -53,16 +53,21 @@
 </div>
 
 <div class="daftarlomba">
-    <div class="container"
+    <div class="container">
+        <div class="row">
+        <?php $lomba = \App\Lomba::limit(8)->get(); ?>
+        @for($i=0; $i<sizeof($lomba); $i++)
         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
             <div class="card">
-            <img class="card-img-top" src="..." alt="Card image cap">
+            <img class="card-img-top" src="{{$lomba[$i]->poster}} " alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title">{{$lomba[$i]->nama}} </h5>
+                <p class="card-text">{{$lomba[$i]->deskripsi}}</p>
+                <a href="#" class="btn btn-primary">{{$lomba[$i]->tanggal_tutup}}</a>
             </div>
             </div>
+        </div>
+        @endfor
         </div>    
     </div>
 </div>
