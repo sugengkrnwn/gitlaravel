@@ -37,3 +37,8 @@ Route::get('lomba/{id}','LombaController@detail');
 Route::get('/dashboard', function(){
         return view('/dashboard');
 });
+
+Route::get('/logout', function(){
+        Auth::logout();
+        return redirect('/');
+});
