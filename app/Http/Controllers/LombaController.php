@@ -34,7 +34,7 @@ class LombaController extends Controller
         $nama = $request->nama;
         $deskripsi = $request->deskripsi;
         $poster = $request->poster;
-        $tgl = $request->tglttp;
+        $tgl = $request->tanggal_tutup;
 
         if($nama == null){
             return 'nama kosong';
@@ -65,7 +65,7 @@ class LombaController extends Controller
         $nama = $request->nama;
         $deskripsi = $request->deskripsi;
         $poster = $request->poster;
-        $tgl = $request->tglttp;
+        $tgl = $request->tanggal_tutup;
 
         if($nama == null){
             return 'nama kosong';
