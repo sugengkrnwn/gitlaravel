@@ -33,3 +33,7 @@ Route::middleware(['auth'])->group(function(){ // perlu auth/login untuk bisa lo
     Route::get('lomba/{id}/confirmdelete','LombaController@deleteConfirm');
 });
 Route::get('lomba/{id}','LombaController@detail');
+
+Route::get('/dashboard', function(){
+        return view('/dashboard');
+});
