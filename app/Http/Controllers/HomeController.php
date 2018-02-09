@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $lombas = \App\Lomba::get();
+        return view('home')->with('lomba',$lombas);
     }
 }
